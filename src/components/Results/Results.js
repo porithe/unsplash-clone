@@ -1,14 +1,24 @@
 import React from 'react';
 import './Results.scss';
+import Masonry from 'react-masonry-component';
+
+const masonryOptions = {
+  isFitWidth: true,
+};
+
 const Results = ({images, title}) => {
 
-  if (images.length > 1) {
-    // console.log(images);
-  }
 
   return (
     <div className="results">
       <h2 className="results__title">{title}</h2>
+      <Masonry options={masonryOptions} className="results__container">
+        {
+          images.map(item => (
+            <img src={item.urls.small} alt="img" key={item.id} />
+          ))
+        }
+      </Masonry>
     </div>
   )
 }

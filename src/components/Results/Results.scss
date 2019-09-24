@@ -1,11 +1,57 @@
+@import "../../assets/colors";
+
 .results {
   width: 100%;
   height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   &__title {
-    font-size: 2em;
+    font-size: 2.4em;
     text-align: center;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: $blue;
+  }
+  .results__container {
+    margin: 40px auto;
+    img {
+      margin: 20px;
+      width: 200px;
+    }
+  }
+}
+@media (min-width: 481px) {
+  .results {
+    .results__container {
+      img {
+        width: auto;
+      }
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .results {
+    &__title {
+      font-size: 2.7em;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .results {
+    &__title {
+      font-size: 3em;
+    }
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .results {
+    &__title {
+      font-size: 3.4em;
+    }
+  }
+}
+@media (min-width: 1281px) {
+  .results {
+    &__title {
+      font-size: 3.9em;
+    }
   }
 }

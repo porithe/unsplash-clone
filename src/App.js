@@ -5,7 +5,7 @@ import Input from "./components/Input/Input";
 import Results from './components/Results/Results';
 import axios from 'axios';
 
-const API = 'https://api.unsplash.com/search/photos?page=1&query=';
+const API = 'https://api.unsplash.com/search/photos?per_page=40&query=';
 const APIKEY = '&client_id=9515c6e0970543b7f352f31e4b1fe6c60e669a20e8b496aa468e26f330c0423a';
 
 const App = () => {
