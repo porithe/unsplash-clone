@@ -12,13 +12,16 @@ const App = () => {
 
   const [images, setImages] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const getInputValue = val => {
     if (val !== '') {
-      setInputValue(val);
+      setLoading(true);
       axios.get(`${API}${val}${APIKEY}`)
         .then(({data}) => {
+          setInputValue(val);
           setImages(data.results);
+          setLoading(false);
         });
     }
   };
@@ -28,7 +31,7 @@ const App = () => {
     <div className="App">
       <Header />
       <Input inputValue={getInputValue} />
-      <Results images={images} title={inputValue} />
+      <Results images={images} title={inputValue} loading={loading} />
     </div>
   );
 };
