@@ -1,0 +1,76 @@
+@import "../../assets/colors";
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($lightblue, 0.8);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__img--height {
+    height: 65%;
+  }
+  &__img--width {
+    width: 65%;
+  }
+  &__exitbutton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  &__exitbutton::before {
+    content: '';
+    position: absolute;
+    top: calc(35px/2);
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background-color: $white;
+    transform: rotate(45deg);
+    border-radius: 15px 15px; 
+  }
+  &__exitbutton::after {
+    content: '';
+    position: absolute;
+    top: calc(35px/2);
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background-color: $white;
+    transform: rotate(135deg);
+    border-radius: 15px 15px; 
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .modal {
+    &__exitbutton {
+      top: 20px;
+      right: 20px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .modal {
+    &__exitbutton {
+      top: 25px;
+      right: 33px;
+    }
+  }
+}
+@media (min-width: 1025px) {
+  .modal {
+    &__img--height {
+      height: 75%;
+    }
+  }
+}

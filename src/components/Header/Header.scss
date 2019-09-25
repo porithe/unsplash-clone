@@ -1,0 +1,29 @@
+@import '../../assets/colors';
+.header {
+  width: 100%;
+  height: 150px;
+  background-color: $blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    color: $white;
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .header {
+    height: 165px;
+    &__title {
+      font-size: 2.8em;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .header {
+    height: 180px;
+    &__title {
+      font-size: 3.4em;
+    }
+  }
+}
