@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Results.scss';
 import Masonry from 'react-masonry-component';
 import Loading from '../Loading/Loading';
@@ -12,8 +12,12 @@ const masonryOptions = {
 const Results = ({images, title, loading}) => {
 
   const {isShowing, toggle} = useModal();
-
-
+  const [imageData, setImageData] = useState([]);
+  
+  const getImageData = (data, toggle) => {
+    toggle();
+    setImageData(data);
+  }
 
   return (
     <div className="results">
@@ -22,12 +26,12 @@ const Results = ({images, title, loading}) => {
         loading === true ? <Loading /> : <Masonry options={masonryOptions} className="results__container">
         {
           images.map(item => (
-            <img src={item.urls.small} alt="img" key={item.id} onClick={toggle} />
+            <img src={item.urls.small} alt={item.alt_description} key={item.id} onClick={() => getImageData(item, toggle)} />
           ))
         }
       </Masonry>
       }
-      <Modal isShowing={isShowing} hide={toggle} />
+      <Modal isShowing={isShowing} hide={toggle} imageData={imageData} />
     </div>
   )
 }
